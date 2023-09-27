@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import qs from 'query-string';
 import { view } from '@risingstack/react-easy-state';
 import { Spinner } from 'react-bootstrap';
@@ -14,15 +13,10 @@ import { useStaticData } from './StaticDataProvider';
 const queryParams = qs.parse(window.location.search);
 
 const Game = view(() => {
+  console.log('Full Store:', { ...gameStore });
+
   const { state: gameState, socketConnected } = gameStore;
   const { loading: loadingStaticData } = useStaticData();
-
-  useEffect(() => {
-    document.querySelector('#root').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  });
 
   if (loadingStaticData || !socketConnected) {
     return (

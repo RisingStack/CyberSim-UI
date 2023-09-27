@@ -126,7 +126,7 @@ const Header = view(({ activeTab, setActiveTab }) => {
                   })
               }
             >
-              <p className="my-0">PURCHASED ITEMS</p>
+              <p className="my-0">ITEM INVENTORY</p>
             </Col>
           </>
         )}
@@ -142,18 +142,6 @@ const Header = view(({ activeTab, setActiveTab }) => {
               }
             >
               <p className="my-0">EVENTS & RESPONSES</p>
-            </Col>
-            <Col
-              className="d-flex justify-content-center align-items-center simulation-menu-item--small cursor-pointer border-primary border-right p-0"
-              onClick={() =>
-                document
-                  .querySelector('#mitigations')
-                  ?.scrollIntoView({
-                    behavior: 'smooth',
-                  })
-              }
-            >
-              <p className="my-0">PURCHASES</p>
             </Col>
             <Col
               className="d-flex justify-content-center align-items-center simulation-menu-item--small cursor-pointer border-primary border-right p-0"

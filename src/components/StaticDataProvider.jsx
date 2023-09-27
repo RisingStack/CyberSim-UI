@@ -83,7 +83,7 @@ export const StaticDataProvider = ({ children }) => {
       .finally(() => setActionsLoading(false));
   }, [setActions]);
 
-  // ACTIONS
+  // CURVBALLS
   const [curveballsLoading, setCurveballsLoading] = useState(false);
   const [curveballs, setCurveballs] = useState([]);
   useEffect(() => {

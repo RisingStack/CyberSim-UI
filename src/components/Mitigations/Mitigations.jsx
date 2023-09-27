@@ -49,10 +49,16 @@ const Mitigations = view(
               (acc, category, categoryKey) => {
                 const categorySum = _reduce(
                   category,
-                  (sum, { id, hq_cost }) => {
+                  (sum, { id, hq_cost, local_cost }) => {
                     let newSum = sum;
                     if (toggledMitigations[`${id}_hq`] && hq_cost) {
                       newSum += hq_cost;
+                    }
+                    if (
+                      toggledMitigations[`${id}_local`] &&
+                      local_cost
+                    ) {
+                      newSum += local_cost;
                     }
                     return newSum;
                   },
@@ -100,7 +106,7 @@ const Mitigations = view(
             <Row>
               <Col xs={12}>
                 <h2 className="font-weight-bold mb-1">
-                  PURCHASED ITEMS:
+                  {isInventory ? 'ITEM INVENTORY' : 'PURCHASED ITEMS'}
                 </h2>
               </Col>
             </Row>
@@ -114,7 +120,8 @@ const Mitigations = view(
               allocatedBudget={allocatedCategoryBudgets[key]}
               toggleMitigation={toggleMitigation}
               budget={budget}
-              isSummary={isLog || isInventory}
+              // isSummary={isLog || isInventory}
+              isSummary={isLog}
             />
           ))}
         </Container>
